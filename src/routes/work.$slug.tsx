@@ -455,7 +455,7 @@ function ProjectDetailPage() {
               </main>
             ) : null}
 
-        {slug !== 'dynamis' && (
+        {slug !== 'dynamis' && slug !== 'reepls' && slug !== 'treddar' && (
         <div className="mt-16 grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-6 lg:self-start">
             <div className="mb-4 label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">Contents</div>
