@@ -4,10 +4,12 @@ import { treddarFeatured } from "./treddar";
 import { dynamisFeatured } from "./dynamis";
 import { handoverFeatured } from "./handover";
 import { uzzenSheerahFeatured } from "./uzzen-sheerah";
+import { trashnodeyFeatured } from "./trashnodey";
 import { fdtmFeatured } from "./fdtm";
 
 export const featuredProjects: Project[] = [
   reeplsFeatured,
+  trashnodeyFeatured,
   treddarFeatured,
   dynamisFeatured,
   handoverFeatured,
