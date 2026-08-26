@@ -213,38 +213,18 @@ function Home() {
               style={{ animationDelay: `${index * 120}ms` }}
             >
               <div className="featured-project-card__media">
-                <img src={p.image} alt={p.title} loading="lazy" className="featured-project-card__image object-contain object-center" />
+                <img src={p.image} alt={p.title} loading="lazy" className="featured-project-card__image w-full h-full object-cover object-center" />
 
                 <div className="featured-project-card__overlay">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="label-mono text-white/70">{p.index}</span>
-                    <span className="featured-project-card__pill label-mono">{p.discipline}</span>
-                  </div>
-
-                  <div>
-                    <h3 className="font-display text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                      {p.title}
-                    </h3>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {p.keywords.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-white/20 bg-white/5 px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-white/80"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="mt-3 flex items-center justify-between gap-3 border-t border-white/10 pt-3 text-[10px] uppercase tracking-[0.14em] text-[#8fe0ba]">
-                      {p.views > 0 ? <span>{p.views} views</span> : <span />}
-                      <span>{p.impact}</span>
-                    </div>
-
-                    <div className="mt-4">
-                      <span className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-3 py-2 text-sm text-white">
-                        View case study →
+                  <div className="flex flex-wrap gap-2">
+                    {p.keywords.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/20 bg-white/5 px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-white/80"
+                      >
+                        {tag}
                       </span>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
