@@ -8,6 +8,19 @@ import UzzenSheerahCaseStudy from "@/components/project/UzzenSheerahCaseStudy";
 
 function RenderMedia({ src, label, alt, className }: { src?: string; label: string; alt?: string; className?: string }) {
   if (src) {
+    // Check if it's a video file
+    if (src.toLowerCase().endsWith('.mp4') || src.toLowerCase().endsWith('.webm') || src.toLowerCase().endsWith('.mov')) {
+      return (
+        <video 
+          src={src} 
+          controls 
+          className={className} 
+          aria-label={label}
+          style={{ width: '100%', height: 'auto' }}
+        />
+      );
+    }
+    // Otherwise render as image
     return <img src={src} alt={alt ?? label} className={className} />;
   }
 
@@ -368,8 +381,19 @@ function ProjectDetailPage() {
                 {/* 13 — Final experience */}
                 <section id="final" className="scroll-mt-24 border-t border-white/10 pt-8">
                   <p className="label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">The final experience</p>
-                  <div className="mt-6 grid gap-6 sm:grid-cols-2">
+                  <div className="mt-6 space-y-6">
+                    {/* Display video if available in process assets */}
+                    {(project.assets?.process ?? []).map((src, i) => 
+                      src?.toLowerCase().endsWith('.mp4') || src?.toLowerCase().endsWith('.webm') || src?.toLowerCase().endsWith('.mov') ? (
+                        <div key={src} className="w-full">
+                          <RenderMedia src={src} label={`${project.slug}/demo-video`} className="w-full rounded-xl" />
+                        </div>
+                      ) : null
+                    )}
+                    {/* Display gallery images */}
+                    <div className="grid gap-6 sm:grid-cols-2">
                       {(project.gallery ?? [project.image]).slice(0, 8).map((img, i) => (<div key={img}><RenderMedia src={img} label={`${project.slug}/final-screen-${i+1}`} alt={`Final screen ${i+1}`} className="w-full object-contain mx-auto block" /></div>))}
+                    </div>
                   </div>
                 </section>
 
