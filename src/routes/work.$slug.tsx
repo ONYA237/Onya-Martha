@@ -342,8 +342,12 @@ function ProjectDetailPage() {
                       {
                         (() => {
                           const proc = project.assets?.process ?? [];
-                          const byName = proc.find((p) => typeof p === 'string' && p.toLowerCase().includes('process-02'));
-                          const src = byName ?? proc[1] ?? proc[0];
+                          let src: string | undefined;
+                          if (proc.length) {
+                            // prefer an asset that references "process-02" (robust to naming)
+                            src = proc.find((p) => typeof p === 'string' && /process[-_]?0?2/i.test(p));
+                            if (!src) src = proc[1] ?? proc[0];
+                          }
                           return <RenderMedia src={src} label={`${project.slug}/flow`} alt={`${project.title} main flow`} className="w-full object-contain mx-auto block" />;
                         })()
                       }
