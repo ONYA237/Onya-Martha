@@ -20,7 +20,7 @@ export type { Project };
 export default featuredProjects;
 
 // Auto-wire hero thumbnails from `src/assets/projects/<slug>/hero/*`
-const __assetMap = import.meta.glob('/src/assets/projects/**', { eager: true, as: 'url' }) as Record<string, string>;
+const __assetMap = import.meta.glob('/src/assets/projects/**', { eager: true, query: '?url', import: 'default' }) as Record<string, string>;
 for (const f of featuredProjects) {
   if (f.image) continue;
   const heroKey = Object.keys(__assetMap).find((k) => k.startsWith(`/src/assets/projects/${f.slug}/hero/`));

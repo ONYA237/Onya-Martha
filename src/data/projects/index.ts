@@ -39,7 +39,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
 // Auto-wire local assets: if you upload images into `src/assets/projects/<slug>/...`,
 // Vite will expose them via import.meta.glob and we use those URLs to populate
 // missing `image`, `process[].image`, and `gallery` entries so uploads work automatically.
-const __assetMap = import.meta.glob('/src/assets/projects/**', { eager: true, as: 'url' }) as Record<string, string>;
+const __assetMap = import.meta.glob('/src/assets/projects/**', { eager: true, query: '?url', import: 'default' }) as Record<string, string>;
 for (const [slug, detail] of Object.entries(projectDetails)) {
 	const assetRoot = `/src/assets/projects/${slug}`;
 
