@@ -8,12 +8,12 @@ import { trashnodeyFeatured } from "./trashnodey";
 import { fdtmFeatured } from "./fdtm";
 
 export const featuredProjects: Project[] = [
-  reeplsFeatured,
+  dynamisFeatured,
+  uzzenSheerahFeatured,
   trashnodeyFeatured,
   treddarFeatured,
-  dynamisFeatured,
+  reeplsFeatured,
   handoverFeatured,
-  uzzenSheerahFeatured,
   fdtmFeatured,
 ];
 
