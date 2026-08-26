@@ -44,6 +44,13 @@ function ProjectDetailPage() {
 
   const featured = featuredProjects.find((f) => f.slug === slug);
 
+  // Simple single-image case studies: display the full Behance artwork as-is
+  const simpleCaseStudies = ["ngo-website-design", "trashnodey"];
+  const behanceLinks: Record<string, string> = {
+    "trashnodey": "https://www.behance.net/gallery/230145183/Trashnodey",
+    "ngo-website-design": "https://www.behance.net/gallery/240423561/NGO-Website-Design",
+  };
+
   // If the slug matches a featured project but has no full detail yet,
   // render a simple skeleton using the featured project's summary fields.
   if (!project) {
@@ -95,6 +102,45 @@ function ProjectDetailPage() {
           >
             Back to my work
           </Link>
+        </div>
+      </div>
+    );
+  }
+
+  if (simpleCaseStudies.includes(slug)) {
+    const heroSrc = project.assetSlots?.hero ?? project.image;
+    return (
+      <div className="min-h-screen bg-[#0b0b0a] text-[#f3f0ea]">
+        <div className="mx-auto px-5 py-8 md:px-10 md:py-12">
+          <div className="mb-8 flex items-center justify-between">
+            <Link to="/work" className="label-mono text-sm text-[#c9c3bb] transition hover:text-white">
+              ← Back to my work
+            </Link>
+          </div>
+
+          <header className="pt-2 md:pt-6">
+            <div className="mb-4">
+              <p className="label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">{project.discipline}</p>
+              <h1 className="mt-2 font-display text-4xl tracking-tight">{project.title}</h1>
+            </div>
+          </header>
+
+          <main className="mt-8">
+            <div className="mx-auto" style={{ width: 'min(95vw, 1400px)' }}>
+              <RenderMedia
+                src={heroSrc}
+                label={project.assetSlots?.hero ?? `${project.slug}/hero`}
+                alt={project.title}
+                className="w-full h-auto object-contain block"
+              />
+            </div>
+
+            <div className="mt-6 text-sm text-[#c9c3bb]">
+              <a href={behanceLinks[slug] ?? '#'} target="_blank" rel="noopener noreferrer" className="underline">
+                View full case study on Behance ↗
+              </a>
+            </div>
+          </main>
         </div>
       </div>
     );
