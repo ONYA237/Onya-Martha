@@ -142,12 +142,21 @@
     border-color: var(--border);
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+  }
+
+  img, video, svg {
+    display: block;
+    max-width: 100%;
   }
 
   .theme-dark {
@@ -238,6 +247,29 @@
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.9;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, var(--brand) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand) 55%, transparent);
+  color: var(--brand);
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.brand-mark--header {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.72rem;
 }
 
 /* Hero & text motion animations inspired by the reference site */
@@ -433,7 +465,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 100vh;
+  height: clamp(22rem, 36vw, 39rem);
   background: #0d0d0d;
 }
 
@@ -483,7 +515,7 @@
   }
 
   .featured-project-card__media {
-    height: 100vh;
+    height: clamp(19rem, 62vw, 28rem);
   }
 }
 
@@ -493,7 +525,43 @@
   }
 
   .featured-project-card__media {
-    height: 100vh;
+    height: clamp(24rem, 30vw, 34rem);
+  }
+}
+
+.case-study-shell {
+  overflow-x: hidden;
+}
+
+.story-3d-stage {
+  overflow: hidden;
+}
+
+.story-layer {
+  max-width: 100%;
+}
+
+.story-orb {
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .case-study-shell {
+    overflow-x: clip !important;
+  }
+
+  .story-3d-stage {
+    height: 260px !important;
+  }
+
+  .story-layer {
+    width: min(62vw, 220px) !important;
+    height: min(38vw, 150px) !important;
+  }
+
+  .story-orb {
+    width: min(42vw, 170px) !important;
+    height: min(42vw, 170px) !important;
   }
 }
 

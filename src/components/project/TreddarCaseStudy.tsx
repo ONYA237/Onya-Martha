@@ -134,7 +134,7 @@ const reflectionCards = [
   },
   {
     title: "MOBILE UX IS ABOUT THE MOMENT.",
-    text: "Travel happens in real situations — while planning, waiting, moving or preparing to leave. That made clarity and speed particularly important.",
+    text: "Travel happens in real situations, while planning, waiting, moving or preparing to leave. That made clarity and speed particularly important.",
   },
 ];
 
@@ -647,7 +647,7 @@ export default function TreddarCaseStudy() {
 
           <div className="space-y-6">
             <div className="rounded-[28px] border border-white/10 bg-[#0d1114] p-5 md:p-7">
-              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">01 — SEARCH</div>
+              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">01, SEARCH</div>
               <p className="max-w-4xl text-lg leading-relaxed text-[#d8d2cc]">
                 The search experience needed to get out of the user’s way. The first question is simple: where are you going? So the interface gives route, date and passenger selection a clear priority.
               </p>
@@ -657,7 +657,7 @@ export default function TreddarCaseStudy() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-[#0d1114] p-5 md:p-7">
-              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">02 — TRIP RESULTS</div>
+              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">02, TRIP RESULTS</div>
               <p className="max-w-4xl text-lg leading-relaxed text-[#d8d2cc]">
                 The results screen is where the traveller moves from searching to deciding. That meant the information hierarchy mattered: agency, departure, arrival, price and availability. The card needed to make these differences scannable.
               </p>
@@ -667,7 +667,7 @@ export default function TreddarCaseStudy() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-[#0d1114] p-5 md:p-7">
-              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">03 — TRIP DETAILS</div>
+              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">03, TRIP DETAILS</div>
               <p className="max-w-4xl text-lg leading-relaxed text-[#d8d2cc]">
                 Before payment, users should have a final opportunity to verify what they’re booking. The interface needs to answer the last questions before commitment.
               </p>
@@ -677,7 +677,7 @@ export default function TreddarCaseStudy() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-[#0d1114] p-5 md:p-7">
-              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">04 — PAYMENT</div>
+              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">04, PAYMENT</div>
               <p className="max-w-4xl text-lg leading-relaxed text-[#d8d2cc]">
                 Once the traveller has made the decision, the interface should not introduce unnecessary complexity. Payment needed to feel like the last step, not another layer of uncertainty.
               </p>
@@ -687,7 +687,7 @@ export default function TreddarCaseStudy() {
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-[#0d1114] p-5 md:p-7">
-              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">05 — DIGITAL TICKET</div>
+              <div className="mb-5 font-display text-4xl tracking-[-0.05em] text-white">05, DIGITAL TICKET</div>
               <p className="max-w-4xl text-lg leading-relaxed text-[#d8d2cc]">
                 The booking ends with reassurance. The user needs to know the trip is confirmed and their details are ready to travel with.
               </p>

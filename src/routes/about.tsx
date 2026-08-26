@@ -32,7 +32,7 @@ function AboutPage() {
 
       <section className="border-b border-border px-6 pt-40 pb-24 md:px-12">
         <div className="mx-auto max-w-[1600px]">
-          <span className="label-mono text-brand">01 — About</span>
+          <span className="label-mono text-brand">01, About</span>
           <h1 className="display-xl mt-5 text-6xl md:text-8xl">Onya Martha.</h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">{profile.tagline}</p>
         </div>
@@ -68,20 +68,20 @@ function AboutPage() {
 
         <div>
           <h2 className="display-xl text-3xl md:text-5xl">
-            I'm a UI/UX designer and frontend engineer from Buea, Cameroon — blending design
+            I'm a UI/UX designer and frontend engineer from Buea, Cameroon, blending design
             thinking with technical precision to build digital products that actually work for
             people.
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground">
             <p>
-              I started with graphic design, grew into product design, and learned to code —
+              I started with graphic design, grew into product design, and learned to code,
               because the gap between a Figma screen and a shipped product is where I operate
               best. I've worked with startups, NGOs, and community builders across Cameroon and
               internationally, always centering clarity, usability, and intent.
             </p>
             <p>
-              Beyond the work: I founded Evolve Design Foundry — a 300+ member community for
-              designers and builders — and serve as Operations Manager at Framework Nation. I
+              Beyond the work: I founded Evolve Design Foundry, a 300+ member community for
+              designers and builders, and serve as Operations Manager at Framework Nation. I
               believe design education and community are as important as the products we ship.
             </p>
           </div>
@@ -121,7 +121,7 @@ function AboutPage() {
 
       <section className="border-t border-border bg-secondary px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1600px]">
-          <span className="label-mono text-brand">05 — Experience</span>
+          <span className="label-mono text-brand">05, Experience</span>
           <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
             <h2 className="display-xl text-4xl md:text-6xl">Where I've worked.</h2>
             <a
@@ -152,7 +152,7 @@ function AboutPage() {
                   <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                     {job.points.map((p) => (
                       <li key={p} className="flex gap-3">
-                        <span className="text-brand">—</span>
+                        <span className="text-brand">•</span>
                         <span>{p}</span>
                       </li>
                     ))}
@@ -165,7 +165,7 @@ function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-[1600px] px-6 py-24 md:px-12 md:py-32">
-        <span className="label-mono text-brand">04 — Beyond Product</span>
+        <span className="label-mono text-brand">04, Beyond Product</span>
         <h2 className="display-xl mt-4 text-4xl md:text-6xl">Depth, without distraction.</h2>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-2">
@@ -184,7 +184,7 @@ function AboutPage() {
               <div>
                 <div className="label-mono text-muted-foreground">Practice</div>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Mentorship and training — helping early designers think in systems, ship with
+                  Mentorship and training, helping early designers think in systems, ship with
                   intent, and build usable work.
                 </p>
               </div>

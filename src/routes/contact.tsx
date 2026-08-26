@@ -7,16 +7,16 @@ import { profile } from "@/data/portfolio";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Onya Martha — let's talk" },
+      { title: "Contact Onya Martha, let's talk" },
       {
         name: "description",
         content:
-          "Get in touch with Onya Martha, UI/UX designer and frontend engineer. Open to freelance and full-time roles.",
+          "Get in touch with Onya Martha, UI/UX designer and frontend engineer. Open to freelance and full time roles.",
       },
       { property: "og:title", content: "Contact Onya Martha" },
       {
         property: "og:description",
-        content: "Open to freelance and full-time roles — send a message.",
+        content: "Open to freelance and full time roles, send a message.",
       },
     ],
   }),
@@ -42,7 +42,7 @@ function ContactPage() {
 
       <section className="border-b border-border px-6 pt-40 pb-24 md:px-12">
         <div className="mx-auto max-w-[1600px]">
-          <span className="label-mono text-brand">01 — Contact</span>
+          <span className="label-mono text-brand">01, Contact</span>
           <h1 className="display-xl mt-5 text-6xl md:text-8xl">Let's talk.</h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
             Open to freelance projects and full-time roles. Tell me what you're building and
@@ -126,7 +126,7 @@ function ContactPage() {
 
           {sent && (
             <p className="label-mono mt-5 text-brand">
-              Thanks — message noted. Email {profile.email} for anything urgent.
+              Thanks, message noted. Email {profile.email} for anything urgent.
             </p>
           )}
         </form>

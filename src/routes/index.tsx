@@ -164,7 +164,7 @@ function Home() {
       <section className="border-b border-border bg-[radial-gradient(circle_at_top,rgba(115,255,197,0.12),transparent_45%)] py-20 md:py-28">
         <div className="mx-auto max-w-[1600px] px-6 md:px-12">
           <div className="mb-10 flex items-center justify-between gap-6">
-            <span className="label-mono text-brand">03 — I do what I say</span>
+            <span className="label-mono text-brand">03, I do what I say</span>
             <span className="label-mono hidden text-muted-foreground md:inline-block">
               Deadlines • clarity • craft
             </span>
@@ -194,7 +194,7 @@ function Home() {
 
       {/* Product index */}
       <section className="mx-auto max-w-[1600px] px-6 py-24 md:px-12 md:py-32">
-        <span className="label-mono text-brand">04 — Featured work</span>
+        <span className="label-mono text-brand">04, Featured work</span>
         <div className="mt-4 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <h2 className="display-xl text-4xl md:text-7xl">Featured projects</h2>
           <p className="max-w-sm text-sm text-muted-foreground">
@@ -241,19 +241,19 @@ function Home() {
         <div className="mt-16 grid gap-4 md:grid-cols-3">
           {[
             {
-              eyebrow: "05 — Full index",
+              eyebrow: "05, Full index",
               title: "The full index",
               copy: "Every project on Behance, in one place.",
               to: "/work" as const,
             },
             {
-              eyebrow: "06 — About",
+              eyebrow: "06, About",
               title: "About Onya",
               copy: "The designer behind the systems.",
               to: "/about" as const,
             },
             {
-              eyebrow: "07 — Contact",
+              eyebrow: "07, Contact",
               title: "Let's talk",
               copy: "Open to freelance & full-time roles.",
               to: "/contact" as const,

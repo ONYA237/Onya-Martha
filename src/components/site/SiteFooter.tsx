@@ -7,7 +7,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1600px] px-6 py-16 md:px-12">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="label-mono text-brand">06 — Contact</span>
+            <span className="label-mono text-brand">06, Contact</span>
             <h2 className="display-xl mt-4 text-4xl md:text-6xl">
               Want to work together?
             </h2>

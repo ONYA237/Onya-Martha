@@ -13,14 +13,15 @@ export function SiteHeader({ variant = "light" }: { variant?: "light" | "dark" }
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-7 md:px-12">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-3">
           {dark ? (
-            <span className="label-mono text-muted-foreground">
-              [{"ONYA MARTHA · 2026"}]
+            <span className="label-mono flex items-center gap-2 text-muted-foreground">
+              <span className="brand-mark brand-mark--header">OM</span>
+              {"ONYA MARTHA, 2026"}
             </span>
           ) : (
             <>
-              <span className="size-2 rounded-full bg-brand" />
+              <span className="brand-mark brand-mark--header">OM</span>
               <span className="font-display text-[0.95rem] font-bold tracking-tight">
                 Onya Martha
               </span>

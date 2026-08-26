@@ -47,7 +47,7 @@ export default function UzzenSheerahCaseStudy() {
   const [activeCard, setActiveCard] = useState('ABOUT');
 
   return (
-    <article className="space-y-20 pb-16 text-white">
+    <article className="case-study-shell space-y-20 pb-16 text-white">
       <section className="pt-6">
         <div className="mx-auto max-w-6xl px-5">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -128,7 +128,7 @@ export default function UzzenSheerahCaseStudy() {
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="rounded-[30px] border border-white/10 bg-[#0d1014] p-6 md:p-8">
               <p className="max-w-4xl text-xl leading-relaxed text-[#e7e3df]">
-                The main challenge was not lack of meaning — it was the need to make that meaning immediately legible. The organization had a strong story, but it needed a structure that helped visitors feel the mission before asking them to understand everything all at once.
+                The main challenge was not lack of meaning, it was the need to make that meaning immediately legible. The organization had a strong story, but it needed a structure that helped visitors feel the mission before asking them to understand everything all at once.
               </p>
               <div className="mt-8 font-display text-4xl leading-none tracking-tight text-white md:text-6xl">
                 DON’T MAKE PEOPLE LEARN THE ORGANIZATION BEFORE THEY FEEL IT.
@@ -156,11 +156,11 @@ export default function UzzenSheerahCaseStudy() {
               </div>
 
               <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,#10181c,#0d1014_38%,#090b0d)] p-5 shadow-[0_35px_90px_rgba(0,0,0,0.5)]">
-                <div className="relative h-[360px] overflow-hidden rounded-[22px] border border-white/10 bg-[radial-gradient(circle_at_center,#13302d_0%,#10181c_45%,#090b0d_100%)]">
+                <div className="story-3d-stage relative h-[360px] overflow-hidden rounded-[22px] border border-white/10 bg-[radial-gradient(circle_at_center,#13302d_0%,#10181c_45%,#090b0d_100%)]">
                   {[0, 1, 2, 3].map((layer) => (
                     <div
                       key={layer}
-                      className="absolute left-1/2 top-1/2 rounded-[22px] border border-white/10 bg-white/4 backdrop-blur-sm"
+                      className="story-layer absolute left-1/2 top-1/2 rounded-[22px] border border-white/10 bg-white/4 backdrop-blur-sm"
                       style={{
                         width: `${265 - layer * 22}px`,
                         height: `${165 - layer * 18}px`,
@@ -170,7 +170,7 @@ export default function UzzenSheerahCaseStudy() {
                     />
                   ))}
 
-                  <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-[#8fe0ba]/35 bg-[#0b110f] px-7 py-5 text-center shadow-[0_0_35px_rgba(143,224,186,0.20)]">
+                  <div className="story-orb absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-[#8fe0ba]/35 bg-[#0b110f] px-7 py-5 text-center shadow-[0_0_35px_rgba(143,224,186,0.20)]">
                     <div className="label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">MISSION</div>
                     <div className="mt-2 font-display text-2xl tracking-tight text-white">PURPOSE</div>
                   </div>

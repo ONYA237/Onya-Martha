@@ -30,7 +30,7 @@ export default function ReeplsCaseStudy() {
   }, []);
 
   return (
-    <article className="space-y-20 pb-16 text-white">
+    <article className="case-study-shell space-y-20 pb-16 text-white">
       <section className="pt-6">
         <div className="mx-auto max-w-6xl px-5">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -40,7 +40,7 @@ export default function ReeplsCaseStudy() {
                 Designing clarity into a growing digital ecosystem.
               </h1>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#d8d2cc]">
-                Reepls brings together learning, community, spaces, products, events and opportunities. The challenge was not to remove anything — it was to give each visitor a clearer path into the ecosystem without forcing them to decode the entire structure first.
+                Reepls brings together learning, community, spaces, products, events and opportunities. The challenge was not to remove anything, it was to give each visitor a clearer path into the ecosystem without forcing them to decode the entire structure first.
               </p>
 
               <div className="mt-7 grid gap-4 sm:grid-cols-2">
@@ -179,12 +179,12 @@ export default function ReeplsCaseStudy() {
               </div>
 
               <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,#121a20,#0c1117_35%,#090b0d)] p-5 shadow-[0_35px_90px_rgba(0,0,0,0.5)]">
-                <div className="relative h-[360px] overflow-hidden rounded-[22px] border border-white/10 bg-[radial-gradient(circle_at_center,#122d2d_0%,#0d1114_45%,#090b0d_100%)]">
+                <div className="story-3d-stage relative h-[360px] overflow-hidden rounded-[22px] border border-white/10 bg-[radial-gradient(circle_at_center,#122d2d_0%,#0d1114_45%,#090b0d_100%)]">
                   <div className="absolute inset-0 opacity-70" style={{ background: 'linear-gradient(135deg, rgba(143,224,186,0.14), transparent 35%, rgba(196,181,253,0.12))' }} />
                   {[0, 1, 2, 3, 4].map((layer) => (
                     <div
                       key={layer}
-                      className="absolute left-1/2 top-1/2 rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-sm"
+                      className="story-layer absolute left-1/2 top-1/2 rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-sm"
                       style={{
                         width: `${260 - layer * 20}px`,
                         height: `${160 - layer * 18}px`,
@@ -194,7 +194,7 @@ export default function ReeplsCaseStudy() {
                     />
                   ))}
 
-                  <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-[#8fe0ba]/40 bg-[#0d110f] px-7 py-5 text-center shadow-[0_0_35px_rgba(143,224,186,0.25)]">
+                  <div className="story-orb absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-[#8fe0ba]/40 bg-[#0d110f] px-7 py-5 text-center shadow-[0_0_35px_rgba(143,224,186,0.25)]">
                     <div className="label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">KEY IDEA</div>
                     <div className="mt-2 font-display text-2xl tracking-[-0.05em] text-white">INTENT</div>
                   </div>

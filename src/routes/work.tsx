@@ -109,6 +109,26 @@ function WorkPage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-[1600px] px-6 pb-20 md:px-12">
+        <div className="flex flex-col items-center justify-between gap-4 rounded-[28px] border border-border bg-card/70 px-6 py-8 text-center shadow-[0_0_0_1px_rgba(255,255,255,0.02)] md:flex-row md:text-left">
+          <div>
+            <p className="label-mono text-muted-foreground">Want to see more?</p>
+            <h2 className="mt-2 font-display text-3xl tracking-tight text-foreground md:text-4xl">
+              View more of my work.
+            </h2>
+          </div>
+
+          <a
+            href={profile.behance}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-medium text-[#0e1412] transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            View on Behance ↗
+          </a>
+        </div>
+      </section>
+
       <SiteFooter />
     </div>
   );
