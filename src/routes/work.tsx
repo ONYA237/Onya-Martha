@@ -1,7 +1,8 @@
 import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { archiveProjects, featuredProjects } from "@/data/projects";
+import { featuredProjects as featuredWorkProjects } from "@/data/featured";
+import { archiveProjects } from "@/data/projects";
 import { profile } from "@/data/portfolio";
 
 export const Route = createFileRoute("/work")({
@@ -10,8 +11,7 @@ export const Route = createFileRoute("/work")({
       { title: "My work — Onya Martha, UI/UX & Frontend" },
       {
         name: "description",
-        content:
-          "Selected case studies from Onya Martha: Njonga, Ranty, Yummy, NGO Admin Dashboard and Kulture Hub Kamer.",
+        content: "Selected case studies and product work from Onya Martha.",
       },
       { property: "og:title", content: "My work — Onya Martha" },
       {
@@ -20,7 +20,6 @@ export const Route = createFileRoute("/work")({
       },
       { property: "og:image", content: profile.portrait },
       { name: "twitter:image", content: profile.portrait },
-
     ],
   }),
   component: WorkPage,
@@ -29,6 +28,9 @@ export const Route = createFileRoute("/work")({
 function WorkPage() {
   const location = useLocation();
   const isProjectDetail = location.pathname !== "/work" && location.pathname.startsWith("/work/");
+  const allProjects = [...featuredWorkProjects, ...archiveProjects].filter(
+    (project) => Boolean(project?.slug && project?.title),
+  );
 
   if (isProjectDetail) {
     return <Outlet />;
@@ -38,118 +40,72 @@ function WorkPage() {
     <div className="min-h-screen">
       <SiteHeader />
 
-      <section className="border-b border-border px-6 pt-40 pb-24 md:px-12">
+      <section className="px-6 pt-40 pb-24 md:px-12">
         <div className="mx-auto max-w-[1600px]">
-          <span className="label-mono text-brand">01 — My work</span>
           <h1 className="display-xl mt-5 text-6xl md:text-8xl">My work.</h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Each entry ships a measurable outcome — not just a screen. Featured case studies
-            below, the full Behance index after.
+          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+            A full list of selected projects and case studies.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1600px] px-6 py-24 md:px-12 md:py-32">
-        <span className="label-mono text-muted-foreground">02 — Selected Work</span>
-        <div className="mt-4 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <h2 className="display-xl text-4xl md:text-6xl">The Product Index</h2>
-          <p className="max-w-xs text-sm text-muted-foreground">
-            Treated as releases — each entry ships a measurable outcome, not just a screen.
-          </p>
-        </div>
-
-        <div className="mt-16 border-t border-border">
-          {featuredProjects.map((p) => (
+      <section className="mx-auto max-w-[1600px] px-6 py-8 md:px-12 md:py-12">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {allProjects.map((p) => (
             <Link
               key={p.slug}
               to="/work/$slug"
               params={{ slug: p.slug }}
-              className="group grid items-center gap-6 border-b border-border py-8 md:grid-cols-[3rem_11rem_1fr_18rem]"
+              className="group overflow-hidden rounded-[28px] border border-border bg-card/70 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-300 hover:-translate-y-1 hover:border-brand/60 hover:shadow-[0_30px_80px_rgba(18,24,21,0.18)]"
             >
-              <span className="label-mono text-muted-foreground">{p.index}</span>
-              <div className="overflow-hidden rounded-md border border-border">
+              <div className="overflow-hidden border-b border-border">
                 <img
                   src={p.image}
                   alt={p.title}
                   loading="lazy"
-                  className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
               </div>
-              <div>
-                <h3 className="font-display text-2xl font-semibold tracking-tight transition-colors group-hover:text-brand md:text-3xl">
-                  {p.title}
-                </h3>
-                <p className="label-mono mt-2 text-muted-foreground">
-                  {p.discipline} · {p.views} views
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {p.keywords.map((tag) => (
-                    <span
-                      key={tag}
-                      className="label-mono rounded border border-border px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <div className="mb-3 flex items-center justify-between gap-3 rounded border border-border px-3 py-2">
-                  <span className="label-mono text-muted-foreground">Impact</span>
-                  <span className="text-sm font-medium text-foreground">{p.impact}</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {p.tools.map((t) => (
-                    <span
-                      key={t}
-                      className="label-mono rounded border border-border px-2 py-1 text-muted-foreground"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-3 text-sm text-muted-foreground">{p.blurb}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
 
-      <section className="border-t border-border bg-secondary px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1600px]">
-          <span className="label-mono text-brand">02b — More Case Studies</span>
-          <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
-            <h2 className="display-xl text-4xl md:text-6xl">The full index.</h2>
-            <Link to="/work" className="label-mono text-muted-foreground hover:text-foreground">
-              Back to featured
-            </Link>
-          </div>
+              <div className="space-y-4 p-5">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="label-mono text-muted-foreground">{p.index ?? "PROJECT"}</span>
+                  <span className="label-mono text-brand">{p.discipline ?? "UI/UX"}</span>
+                </div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {archiveProjects.map((p) => (
-              <Link
-                key={p.slug}
-                to="/work/$slug"
-                params={{ slug: p.slug }}
-                className="group overflow-hidden rounded-xl border border-border bg-card"
-              >
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  loading="lazy"
-                  className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="flex items-center justify-between p-5">
-                  <span className="font-display text-base font-semibold tracking-tight">
+                <div>
+                  <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground transition-colors group-hover:text-brand md:text-[2rem]">
                     {p.title}
-                  </span>
-                  <span aria-hidden className="text-brand">
+                  </h3>
+                  {p.impact ? (
+                    <p className="mt-2 text-sm font-medium text-brand">{p.impact}</p>
+                  ) : null}
+                </div>
+
+                {p.keywords && p.keywords.length > 0 ? (
+                  <div className="flex flex-wrap gap-2">
+                    {p.keywords.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="label-mono rounded-full border border-border px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] text-muted-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+
+                {p.blurb ? <p className="text-sm leading-6 text-muted-foreground">{p.blurb}</p> : null}
+
+                <div className="flex items-center justify-between border-t border-border pt-4">
+                  <span className="label-mono text-muted-foreground">View case study</span>
+                  <span aria-hidden className="text-lg text-brand transition-transform group-hover:translate-x-1">
                     ↗
                   </span>
                 </div>
-              </Link>
-            ))}
-          </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

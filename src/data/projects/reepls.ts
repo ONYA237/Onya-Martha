@@ -58,6 +58,7 @@ export const reeplsDetail: ProjectDetail = {
     finalDesign: "reepls/final-design",
     process: ["reepls/process-01", "reepls/process-02", "reepls/process-03"],
   },
+  liveUrl: "https://www.reepls.com/",
 };
 
 export default reeplsDetail;

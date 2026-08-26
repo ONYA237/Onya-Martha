@@ -87,6 +87,14 @@ function ProjectDetailPage() {
 
             <div className="mt-6 text-sm text-[#c9c3bb]">This featured case study is a placeholder. Full details will be added later.</div>
           </div>
+
+          {project.liveUrl && (
+            <div className="mb-4 md:text-right">
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#8fe0ba] px-4 py-2 text-sm font-medium text-[#8fe0ba]">
+                Live site ↗
+              </a>
+            </div>
+          )}
         </div>
       );
     }
@@ -455,7 +463,7 @@ function ProjectDetailPage() {
               </main>
             ) : null}
 
-        {slug !== 'dynamis' && slug !== 'reepls' && slug !== 'treddar' && (
+        {slug !== 'dynamis' && slug !== 'reepls' && slug !== 'treddar' && slug !== 'uzzen-sheerah' && (
         <div className="mt-16 grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-6 lg:self-start">
             <div className="mb-4 label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">Contents</div>
@@ -632,6 +640,26 @@ function ProjectDetailPage() {
             </section>
           </main>
         </div>
+        )}
+
+        {project.liveUrl && (
+          <div className="mt-20 border-t border-white/10 pt-8">
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">Live website</p>
+                <div className="mt-2 text-2xl font-display tracking-tighter text-white md:text-4xl">{project.title}</div>
+              </div>
+
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-[#8fe0ba] bg-[#8fe0ba] px-6 py-3 text-sm font-medium text-[#0b0b0a] transition hover:opacity-90"
+              >
+                View live website ↗
+              </a>
+            </div>
+          </div>
         )}
 
         <div className="mt-20 border-t border-white/10 pt-8">

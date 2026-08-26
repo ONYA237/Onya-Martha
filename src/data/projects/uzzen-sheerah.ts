@@ -49,6 +49,7 @@ export const uzzenSheerahDetail: ProjectDetail = {
     finalDesign: "uzzen-sheerah/final-design",
     process: ["uzzen-sheerah/process-01", "uzzen-sheerah/process-02", "uzzen-sheerah/process-03"],
   },
+  liveUrl: "https://uzzensheerah.org/",
 };
 
 export default uzzenSheerahDetail;

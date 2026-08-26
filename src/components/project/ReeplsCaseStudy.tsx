@@ -1,381 +1,284 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const INTENTS = [
-  { key: 'learn', label: 'LEARN', color: '#2563EB', elements: ['PROGRAMS', 'COURSES', 'RESOURCES'] },
-  { key: 'work', label: 'WORK', color: '#7C3AED', elements: ['OPPORTUNITIES', 'PROFESSIONALS'] },
-  { key: 'connect', label: 'CONNECT', color: '#F97316', elements: ['EVENTS', 'COMMUNITY'] },
-  { key: 'build', label: 'BUILD', color: '#10B981', elements: ['PRODUCTS', 'PROJECTS'] },
-  { key: 'space', label: 'SPACE', color: '#06B6D4', elements: ['SPACES', 'HUBS'] },
-  { key: 'partner', label: 'PARTNER', color: '#FB7185', elements: ['PARTNERSHIPS', 'PROGRAMS'] },
+  { key: 'learn', label: 'LEARN', color: '#60a5fa', elements: ['PROGRAMS', 'COURSES', 'RESOURCES'] },
+  { key: 'work', label: 'WORK', color: '#a78bfa', elements: ['OPPORTUNITIES', 'PROFESSIONALS'] },
+  { key: 'connect', label: 'CONNECT', color: '#f59e0b', elements: ['EVENTS', 'COMMUNITY'] },
+  { key: 'build', label: 'BUILD', color: '#34d399', elements: ['PRODUCTS', 'PROJECTS'] },
+  { key: 'space', label: 'SPACE', color: '#22d3ee', elements: ['SPACES', 'HUBS'] },
+  { key: 'partner', label: 'PARTNER', color: '#f472b6', elements: ['PARTNERSHIPS', 'PROGRAMS'] },
+];
+
+const journeySteps = [
+  'ARRIVE WITH INTENT',
+  'CHOOSE A PATH',
+  'DISCOVER THE RIGHT ECOSYSTEM',
+  'MOVE TO A RELEVANT DESTINATION',
+  'TAKE ACTION WITH CLARITY',
 ];
 
 export default function ReeplsCaseStudy() {
-  const [active, setActive] = useState<string | null>(null);
-  const [reorganized, setReorganized] = useState(false);
-  const particleRef = useRef<SVGCircleElement | null>(null);
+  const [activeIntent, setActiveIntent] = useState('learn');
+  const [step, setStep] = useState(0);
 
   useEffect(() => {
-    if (!particleRef.current) return;
-    let raf = 0;
-    let t0 = performance.now();
-    const loop = (t: number) => {
-      const p = ((t - t0) / 2000) % 1;
-      // simple circular motion when no active path
-      const r = 120;
-      const cx = 320;
-      const cy = 160;
-      const a = p * Math.PI * 2;
-      particleRef.current!.setAttribute('cx', String(cx + Math.cos(a) * r));
-      particleRef.current!.setAttribute('cy', String(cy + Math.sin(a) * r));
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
+    const timer = window.setInterval(() => {
+      setStep((current) => (current + 1) % journeySteps.length);
+    }, 2200);
+
+    return () => window.clearInterval(timer);
   }, []);
 
   return (
-    <article className="space-y-20">
-      {/* HERO */}
+    <article className="space-y-20 pb-16 text-white">
       <section className="pt-6">
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="grid md:grid-cols-2 gap-10 items-start">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
               <p className="label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">REEPLS</p>
-              <h1 className="mt-4 font-display text-4xl md:text-6xl">Designing clarity into a growing digital ecosystem.</h1>
-              <p className="mt-4 text-lg text-[#d8d2cc] max-w-2xl">Reepls is a technology and learning ecosystem with programs, events, spaces, products and opportunities. The challenge was not to make Reepls smaller — it was to make it easier to understand.
-              I reframed the homepage around user intent so people could enter the ecosystem through what they wanted to do rather than first having to understand how the organization was structured.</p>
+              <h1 className="mt-4 max-w-3xl font-display text-4xl leading-none tracking-[-0.06em] md:text-6xl">
+                Designing clarity into a growing digital ecosystem.
+              </h1>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#d8d2cc]">
+                Reepls brings together learning, community, spaces, products, events and opportunities. The challenge was not to remove anything — it was to give each visitor a clearer path into the ecosystem without forcing them to decode the entire structure first.
+              </p>
 
-              <div className="mt-6 grid grid-cols-2 gap-3 text-sm text-[#c9c3bb]">
-                <div><strong className="block text-white">ROLE</strong> UI/UX Designer</div>
-                <div><strong className="block text-white">PLATFORM</strong> Responsive Web</div>
-                <div><strong className="block text-white">FOCUS</strong> Ecosystem clarity</div>
-                <div><strong className="block text-white">OUTCOME</strong> Structured discoverability</div>
+              <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                <InfoCard label="ROLE" value="UI/UX Designer" />
+                <InfoCard label="PLATFORM" value="Responsive Web" />
+                <InfoCard label="FOCUS" value="Ecosystem clarity" />
+                <InfoCard label="OUTCOME" value="Intent-led navigation" />
               </div>
             </div>
 
             <div className="relative">
-              <div className="w-full h-[340px] bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-4 overflow-visible">
-                <svg viewBox="0 0 640 320" className="w-full h-full">
-                  <defs>
-                    <linearGradient id="g1" x1="0%" x2="100%">
-                      <stop offset="0%" stopColor="#60A5FA" />
-                      <stop offset="100%" stopColor="#7C3AED" />
-                    </linearGradient>
-                  </defs>
-                  {/* center */}
-                  <g>
-                    <circle cx={320} cy={160} r={48} fill="#0b0b0a" stroke="#374151" strokeWidth={2} />
-                    <text x={320} y={166} textAnchor="middle" fill="#fff" fontWeight={700} fontSize={18}>REEPLS</text>
-                  </g>
+              <div className="rounded-[30px] border border-white/10 bg-[#0d1014] p-5 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+                <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                  </div>
+                  <span className="label-mono text-[10px] uppercase tracking-[0.16em] text-[#c4c9ce]">REEPLS</span>
+                </div>
 
-                  {/* intents and paths */}
-                  {INTENTS.map((it, i) => {
-                    const angle = (i / INTENTS.length) * Math.PI * 2 - Math.PI / 2;
-                    const x = 320 + Math.cos(angle) * 140;
-                    const y = 160 + Math.sin(angle) * 110;
-                    const pathD = `M ${320} ${160} Q ${(320 + x) / 2} ${(160 + y) / 2 - 30} ${x} ${y}`;
-                    return (
-                      <g key={it.key} onMouseEnter={() => setActive(it.key)} onMouseLeave={() => setActive(null)} style={{ cursor: 'pointer' }}>
-                        <path d={pathD} stroke={it.color} strokeWidth={active === it.key ? 3 : 2} fill="none" opacity={0.9} strokeLinecap="round" />
-                        <g>
-                          <circle cx={x} cy={y} r={28} fill={it.color} opacity={0.98} />
-                          <text x={x} y={y + 4} textAnchor="middle" fill="#fff" fontSize={12} fontWeight={700}>{it.label}</text>
-                        </g>
-                        {/* related nodes */}
-                        {it.elements.map((el, j) => {
-                          const ex = x + (j - 1) * 44;
-                          const ey = y + 56;
-                          return (
-                            <g key={el} opacity={active && active !== it.key ? 0.18 : 1}>
-                              <path d={`M ${x} ${y + 20} Q ${x + (ex - x) / 2} ${y + 36} ${ex} ${ey}`} stroke={it.color} strokeWidth={1.2} fill="none" strokeLinecap="round" />
-                              <rect x={ex - 28} y={ey - 16} rx={8} width={56} height={28} fill="#0b0b0a" stroke={it.color} />
-                              <text x={ex} y={ey + 4} textAnchor="middle" fill="#fff" fontSize={10}>{el}</text>
-                            </g>
-                          );
-                        })}
-                      </g>
-                    );
-                  })}
+                <div className="rounded-[24px] border border-white/8 bg-[radial-gradient(circle_at_top,#1d2732_0%,#0d1115_45%,#090b0d_100%)] p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <div className="label-mono text-[10px] uppercase tracking-[0.2em] text-[#8fe0ba]">WHY IT MATTERS</div>
+                      <div className="mt-3 font-display text-3xl tracking-[-0.06em] text-white">WHAT ARE YOU HERE TO DO?</div>
+                    </div>
+                    <div className="rounded-full border border-[#8fe0ba]/30 bg-[#8fe0ba]/10 px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-[#d8f8eb]">
+                      user intent
+                    </div>
+                  </div>
 
-                  {/* particle */}
-                  <circle ref={particleRef} r={4} fill="#fff" opacity={0.95} />
-                </svg>
+                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                    {INTENTS.map((item) => (
+                      <button
+                        key={item.key}
+                        onMouseEnter={() => setActiveIntent(item.key)}
+                        onFocus={() => setActiveIntent(item.key)}
+                        className={`relative overflow-hidden rounded-[18px] border p-3 text-left transition-all duration-300 ${
+                          activeIntent === item.key
+                            ? 'border-white/20 bg-white/8 shadow-[0_20px_40px_rgba(0,0,0,0.20)]'
+                            : 'border-white/8 bg-white/4'
+                        }`}
+                        style={{
+                          transform: activeIntent === item.key ? 'translateY(-4px)' : 'translateY(0)',
+                          boxShadow: activeIntent === item.key ? `inset 0 0 0 1px ${item.color}66` : 'none',
+                        }}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="font-display text-lg text-white">{item.label}</span>
+                          <span className="h-2.5 w-2.5 rounded-full" style={{ background: item.color }} />
+                        </div>
+                        <div className="mt-3 text-[10px] uppercase tracking-[0.14em] text-[#c9d4dd]">
+                          {item.elements[0]}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="mt-3 text-xs text-[#9ca3af]">Interactive ecosystem: hover intents to illuminate related elements.</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PROBLEM & CONTEXT */}
       <section>
-        <div className="max-w-6xl mx-auto px-5">
-          <h2 className="label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">THE PROBLEM WASN'T LACK OF CONTENT</h2>
-          <p className="mt-4 max-w-3xl text-lg text-[#d8d2cc]">The platform contained many valuable offerings. When everything is important, nothing is prioritized. Different people arrive with different intentions: a course-seeker, an event-goer, a partner, a product user, someone looking for a workspace or someone simply trying to understand what Reepls does.</p>
-          <div className="mt-6 text-3xl md:text-5xl font-display text-white">WHEN EVERYTHING IS IMPORTANT,<br/>NOTHING IS PRIORITIZED.</div>
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="mb-6 label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">THE REAL PROBLEM</div>
+          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+            <div className="rounded-[28px] border border-white/10 bg-[#0d1014] p-6">
+              <p className="max-w-3xl text-xl leading-relaxed text-[#e7e3df]">
+                The platform had plenty of valuable content, but it was all competing for attention at the same time. Users were arriving with different goals, and the site was expecting them to understand the entire ecosystem before they could take a single meaningful step.
+              </p>
+              <div className="mt-8 text-4xl font-display leading-none tracking-[-0.06em] text-white md:text-6xl">
+                WHEN EVERYTHING IS IMPORTANT,<br /> NOTHING FEELS IMPORTANT.
+              </div>
+            </div>
 
-          {/* Complexity visual */}
-          <div className="mt-8 bg-slate-900 rounded-2xl p-6">
-            <ComplexityTransform reorganized={reorganized} onToggle={() => setReorganized((s) => !s)} />
+            <div className="space-y-4">
+              <MetricCard label="01" title="too many entry points" value="everything was visible, nothing was prioritized" />
+              <MetricCard label="02" title="unclear audience intent" value="visitors did not know which path best matched their need" />
+              <MetricCard label="03" title="high cognitive load" value="the homepage asked users to learn the system before using it" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* DESIGN APPROACH (statement) */}
       <section>
-        <div className="max-w-6xl mx-auto px-5">
-          <h2 className="font-display text-3xl">DESIGNING RELATIONSHIPS, NOT JUST PAGES.</h2>
-          <blockquote className="mt-4 text-xl text-[#d8d2cc]">"I stopped designing isolated pages and started designing relationships."</blockquote>
-          <p className="mt-3 text-[#c9c3bb]">Instead of treating programs, events, products and spaces as separate destinations, I looked at how they relate to the reasons people actually arrive. The homepage became a directional entry point. Rather than asking users to understand Reepls first, it asks a simpler question: What are you here to do?</p>
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="mb-6 label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">THE DESIGN SHIFT</div>
+          <div className="rounded-[30px] border border-white/10 bg-[#0d1014] p-6 md:p-8">
+            <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+              <div>
+                <div className="font-display text-3xl tracking-[-0.06em] text-white md:text-5xl">I stopped designing pages. I started designing relationships.</div>
+                <p className="mt-4 max-w-lg text-lg leading-relaxed text-[#d8d2cc]">
+                  Instead of treating programs, products, spaces and events as disconnected destinations, I organized them by the reasons people were arriving. This transformed the homepage from a content dump into a decision-making tool.
+                </p>
+              </div>
 
-          <div className="mt-6">
-            <IntentMap onHover={(k) => setActive(k)} active={active} />
+              <div className="grid gap-4 md:grid-cols-2">
+                {INTENTS.map((item) => (
+                  <div
+                    key={item.key}
+                    className="rounded-[22px] border border-white/8 bg-[#11161a] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-white/15"
+                    style={{ boxShadow: activeIntent === item.key ? `inset 0 0 0 1px ${item.color}66` : 'none' }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-display text-xl text-white">{item.label}</span>
+                      <span className="h-2.5 w-2.5 rounded-full" style={{ background: item.color }} />
+                    </div>
+                    <div className="mt-4 space-y-2 text-sm text-[#d8d2cc]">
+                      {item.elements.map((entry) => (
+                        <div key={entry} className="flex items-center gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full" style={{ background: item.color }} />
+                          <span>{entry}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ARCHITECTURE */}
       <section>
-        <div className="max-w-6xl mx-auto px-5">
-          <h3 className="label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">02 — ARCHITECTURE EXPLORATION</h3>
-          <p className="mt-3 text-[#c9c3bb]">Large visual diagrams showed how programs, events, products and spaces connected — the design kept the relationships central.</p>
-          <div className="mt-6 bg-slate-900 rounded-2xl p-6">
-            <ArchitectureNetwork active={active} setActive={setActive} />
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="mb-6 label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">THE 3D EXPLANATION</div>
+          <div className="rounded-[30px] border border-white/10 bg-[#0d1014] p-6 md:p-8">
+            <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div className="space-y-4">
+                <LayeredCard title="ARRIVAL" text="A visitor lands with a goal, not a roadmap." accent="#8fe0ba" />
+                <LayeredCard title="DIRECTION" text="The homepage narrows the decision to a few likely paths." accent="#c4b5fd" />
+                <LayeredCard title="ACTION" text="The user moves into the right ecosystem without friction." accent="#fbbf24" />
+              </div>
+
+              <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(135deg,#121a20,#0c1117_35%,#090b0d)] p-5 shadow-[0_35px_90px_rgba(0,0,0,0.5)]">
+                <div className="relative h-[360px] overflow-hidden rounded-[22px] border border-white/10 bg-[radial-gradient(circle_at_center,#122d2d_0%,#0d1114_45%,#090b0d_100%)]">
+                  <div className="absolute inset-0 opacity-70" style={{ background: 'linear-gradient(135deg, rgba(143,224,186,0.14), transparent 35%, rgba(196,181,253,0.12))' }} />
+                  {[0, 1, 2, 3, 4].map((layer) => (
+                    <div
+                      key={layer}
+                      className="absolute left-1/2 top-1/2 rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-sm"
+                      style={{
+                        width: `${260 - layer * 20}px`,
+                        height: `${160 - layer * 18}px`,
+                        transform: `translate(-50%, -50%) rotateX(${18 + layer * 8}deg) rotateY(${(-18 + layer * 10).toString()}deg) translateY(${layer * 16}px)`,
+                        boxShadow: '0 25px 50px rgba(0,0,0,0.25)',
+                      }}
+                    />
+                  ))}
+
+                  <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-[#8fe0ba]/40 bg-[#0d110f] px-7 py-5 text-center shadow-[0_0_35px_rgba(143,224,186,0.25)]">
+                    <div className="label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">KEY IDEA</div>
+                    <div className="mt-2 font-display text-2xl tracking-[-0.05em] text-white">INTENT</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SHIFT editorial */}
-      <section className="bg-gradient-to-r from-slate-900 to-slate-800 py-20">
-        <div className="max-w-6xl mx-auto px-5 text-center">
-          <h2 className="font-display text-5xl leading-tight text-white">I STOPPED DESIGNING<br/>ISOLATED PAGES.</h2>
-          <h3 className="mt-6 font-display text-4xl text-[#8fe0ba]">AND STARTED DESIGNING<br/>RELATIONSHIPS.</h3>
-          <p className="mt-6 text-[#c9c3bb]">Behind the typography, the ecosystem reconnects — disconnected nodes gradually align to the six intents.</p>
-        </div>
-      </section>
-
-      {/* WIREFRAMING */}
       <section>
-        <div className="max-w-6xl mx-auto px-5">
-          <h3 className="label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">03 — WIREFRAMING</h3>
-          <p className="mt-3 text-[#c9c3bb]">Wireframes focused on hierarchy and decision points: what deserves attention, what can wait, and where reassurance should appear.</p>
-          <WireframeSequence />
-        </div>
-      </section>
-
-      {/* Design principles */}
-      <section>
-        <div className="max-w-6xl mx-auto px-5">
-          <h3 className="label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">DESIGNING FOR DISCOVERABILITY</h3>
-          <p className="mt-3 text-[#c9c3bb]">Design principles guided decisions throughout the project.</p>
-          <DesignPrinciples />
-        </div>
-      </section>
-
-      {/* Final experience (coded homepage) */}
-      <section>
-        <div className="max-w-6xl mx-auto px-5">
-          <h3 className="label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">THE FINAL EXPERIENCE</h3>
-          <CodedHomepage />
-        </div>
-      </section>
-
-      {/* User journey, impact, deliverables, learnings */}
-      <section>
-        <div className="max-w-6xl mx-auto px-5">
-          <h3 className="label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">FROM ARRIVAL TO ACTION</h3>
-          <p className="mt-3 text-[#c9c3bb]">This explains how the user moves through the system from intent to action.</p>
-          <UserJourney />
-
-          <h3 className="mt-10 font-display text-2xl">THE OUTCOME</h3>
-          <p className="mt-3 text-[#c9c3bb]">The homepage functions as an entry point rather than an information dump. Clear choices reduce friction and let users enter the ecosystem through intent, preserving the value of each offering while making the whole easier to navigate.</p>
-
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <div className="p-6 bg-slate-900 rounded-lg"> <strong className="block text-white">INFORMATION ARCHITECTURE</strong><p className="mt-2 text-sm text-[#c9c3bb]">Mini animated ecosystem network</p></div>
-            <div className="p-6 bg-slate-900 rounded-lg"> <strong className="block text-white">HOMEPAGE DESIGN</strong><p className="mt-2 text-sm text-[#c9c3bb]">Mini browser UI</p></div>
-            <div className="p-6 bg-slate-900 rounded-lg"> <strong className="block text-white">DESIGN SYSTEM</strong><p className="mt-2 text-sm text-[#c9c3bb]">Typography, color, buttons, cards</p></div>
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="mb-6 label-mono text-[11px] uppercase tracking-[0.18em] text-[#8fe0ba]">THE EXPERIENCE FLOW</div>
+          <div className="grid gap-4 md:grid-cols-5">
+            {journeySteps.map((stepName, index) => (
+              <div
+                key={stepName}
+                className={`rounded-[22px] border p-4 transition-all duration-300 ${
+                  step === index ? 'border-[#8fe0ba]/40 bg-[#8fe0ba]/10 shadow-[0_25px_60px_rgba(143,224,186,0.16)]' : 'border-white/8 bg-[#0d1014]'
+                }`}
+              >
+                <div className="label-mono text-[10px] uppercase tracking-[0.16em] text-[#c4c9ce]">0{index + 1}</div>
+                <div className="mt-4 font-display text-xl text-white">{stepName}</div>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <h3 className="mt-10 font-display text-2xl">WHAT THIS PROJECT TAUGHT ME</h3>
-          <p className="mt-3 text-2xl">"Complexity often lives in relationships, not in content quantity."</p>
+      <section>
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="grid gap-6 lg:grid-cols-3">
+            <ResultCard number="01" title="Clearer entry" text="The homepage speaks to user intent immediately instead of dumping everything at once." />
+            <ResultCard number="02" title="Better discovery" text="Visitors can move from curiosity to relevance without friction." />
+            <ResultCard number="03" title="Higher trust" text="The experience feels structured, generous and confident rather than crowded." />
+          </div>
         </div>
       </section>
     </article>
   );
 }
 
-function ComplexityTransform({ reorganized, onToggle }: { reorganized: boolean; onToggle: () => void }) {
-  const nodes = ['PROGRAMS','EVENTS','PRODUCTS','SPACES','COMMUNITY','COURSES','OPPORTUNITIES','PARTNERSHIPS','RESOURCES'];
+function InfoCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid md:grid-cols-2 gap-6 items-center">
-      <div className="p-4 bg-slate-800 rounded-lg h-64 relative">
-        <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-3">
-          {nodes.map((n, i) => (
-            <div key={n} className={`px-3 py-2 text-xs rounded border ${reorganized ? 'opacity-40 translate-y-0' : 'bg-white/5'}`} style={{ transform: `translate(${(Math.random()-0.5)*120}px, ${(Math.random()-0.5)*80}px)` }}>{n}</div>
-          ))}
-        </div>
-        <div className="absolute left-3 top-3 text-xs text-[#9ca3af]">Dense ecosystem</div>
-      </div>
-      <div className="p-4 bg-slate-800 rounded-lg h-64 relative">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="grid grid-cols-3 gap-3">
-            {['LEARN','WORK','CONNECT','BUILD','SPACE','PARTNER'].map((k) => (
-              <div key={k} className="px-4 py-3 text-sm rounded-md bg-gradient-to-br from-slate-700 to-slate-600 text-white text-center">{k}</div>
-            ))}
-          </div>
-        </div>
-        <div className="absolute left-3 top-3 text-xs text-[#9ca3af]">Reorganized around intent</div>
-      </div>
-      <div className="col-span-2 text-right">
-        <button onClick={onToggle} className="inline-flex items-center gap-2 rounded-full bg-[#8fe0ba] px-4 py-2 text-sm font-medium text-[#0b0b0a]">{reorganized ? 'Show dense' : 'Reorganize'}</button>
-      </div>
+    <div className="rounded-[18px] border border-white/8 bg-white/4 p-4">
+      <div className="label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">{label}</div>
+      <div className="mt-2 text-[#f2f0ee]">{value}</div>
     </div>
   );
 }
 
-function IntentMap({ onHover, active }: { onHover: (k: string | null) => void; active: string | null }) {
+function MetricCard({ label, title, value }: { label: string; title: string; value: string }) {
   return (
-    <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
-      {INTENTS.map((it) => (
-        <div key={it.key} onMouseEnter={() => onHover(it.key)} onMouseLeave={() => onHover(null)} className={`p-6 rounded-lg bg-gradient-to-br from-slate-800 to-slate-700 border ${active===it.key ? 'ring-2 ring-white/20' : ''}`}>
-          <div className="flex items-center gap-3">
-            <div style={{background: it.color}} className="w-3 h-3 rounded" />
-            <div className="font-display text-lg text-white">{it.label}</div>
-          </div>
-          <div className="mt-3 text-sm text-[#c9c3bb]">
-            {it.elements.join(', ')}
-          </div>
-        </div>
-      ))}
+    <div className="rounded-[22px] border border-white/8 bg-[#101418] p-5">
+      <div className="label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">{label}</div>
+      <div className="mt-3 font-display text-2xl tracking-[-0.04em] text-white">{title}</div>
+      <p className="mt-3 text-sm leading-relaxed text-[#d8d2cc]">{value}</p>
     </div>
   );
 }
 
-function ArchitectureNetwork({ active, setActive }: { active: string | null; setActive: (s: string | null) => void }) {
-  // a compact network visualization
+function LayeredCard({ title, text, accent }: { title: string; text: string; accent: string }) {
   return (
-    <div className="w-full h-72">
-      <svg viewBox="0 0 700 300" className="w-full h-full">
-        {INTENTS.map((it, i) => {
-          const x = 100 + i * 95;
-          const y = 60;
-          return (
-            <g key={it.key} onMouseEnter={() => setActive(it.key)} onMouseLeave={() => setActive(null)}>
-              <circle cx={x} cy={y} r={26} fill={it.color} />
-              <text x={x} y={y+5} textAnchor="middle" fill="#fff" fontSize={10}>{it.label}</text>
-              {it.elements.map((el, j) => (
-                <g key={el}>
-                  <line x1={x} y1={y+20} x2={x-20 + j*40} y2={y+80} stroke={it.color} strokeWidth={1} opacity={active && active!==it.key ? 0.2 : 0.9} />
-                  <rect x={x-36 + j*40} y={y+80} width={72} height={22} rx={6} fill="#0b0b0a" stroke={it.color} />
-                  <text x={x-36 + j*40 + 36} y={y+96} textAnchor="middle" fontSize={9} fill="#fff">{el}</text>
-                </g>
-              ))}
-            </g>
-          );
-        })}
-      </svg>
-    </div>
-  );
-}
-
-function WireframeSequence() {
-  const [step, setStep] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setStep((s) => (s + 1) % 4), 2200);
-    return () => clearInterval(id);
-  }, []);
-  return (
-    <div className="mt-6 grid md:grid-cols-4 gap-4">
-      {[0,1,2,3].map((i) => (
-        <div key={i} className={`p-4 rounded border ${step===i ? 'border-white/20 bg-slate-800' : 'bg-slate-900'}`}>
-          <div className="h-6 bg-white/5 rounded w-3/4 mb-3" />
-          <div className="h-3 bg-white/3 rounded w-1/2 mb-6" />
-          <div className="grid gap-3">
-            <div className="h-12 bg-white/5 rounded" />
-            <div className="h-28 bg-white/5 rounded" />
-            <div className="flex gap-3">
-              <div className="flex-1 h-10 bg-white/5 rounded" />
-              <div className="w-20 h-10 bg-white/5 rounded" />
-            </div>
-          </div>
-          <div className="mt-3 text-xs text-[#9ca3af]">Wireframe {i+1}</div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function DesignPrinciples() {
-  const cards = [
-    {title: 'CLEAR ENTRY POINTS', desc: 'Users should be able to recognize their intent immediately.', color: '#60A5FA'},
-    {title: 'PROGRESSIVE DISCLOSURE', desc: 'Not everything needs to compete for attention at the same moment.', color: '#F97316'},
-    {title: 'RELATIONSHIPS OVER CATEGORIES', desc: 'Programs, events, products and spaces become more useful when their relationships are visible.', color: '#10B981'},
-    {title: 'DIRECTION OVER DENSITY', desc: 'The homepage should help users decide where to go next.', color: '#FB7185'},
-  ];
-  return (
-    <div className="mt-6 grid md:grid-cols-4 gap-4">
-      {cards.map((c, i) => (
-        <div key={i} className="p-4 rounded-lg bg-slate-800 text-white">
-          <div className="flex items-center gap-3">
-            <div style={{background: c.color}} className="w-3 h-3 rounded" />
-            <div className="font-medium">{c.title}</div>
-          </div>
-          <div className="mt-3 text-sm text-[#d8d2cc]">{c.desc}</div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function CodedHomepage() {
-  return (
-    <div className="mt-6 border rounded-lg overflow-hidden bg-slate-900">
-      <div className="px-6 py-4 flex items-center justify-between border-b border-white/6">
-        <div className="font-display text-lg">REEPLS</div>
-        <nav className="flex gap-4 text-sm text-[#c9c3bb]"><div>Academy</div><div>Solutions</div><div>Events</div><div>Hackathon Hub</div><div>Blog</div></nav>
+    <div
+      className="relative rounded-[22px] border border-white/8 bg-[#11161a] p-4 shadow-[0_20px_50px_rgba(0,0,0,0.22)]"
+      style={{ transform: 'perspective(900px) rotateX(12deg) rotateY(-8deg)' }}
+    >
+      <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+      <div className="flex items-center justify-between">
+        <span className="font-display text-xl text-white">{title}</span>
+        <span className="h-2.5 w-2.5 rounded-full" style={{ background: accent }} />
       </div>
-      <div className="p-8 md:p-12 grid md:grid-cols-3 gap-8 items-start">
-        <div className="md:col-span-2">
-          <h2 className="text-3xl font-display">WHAT ARE YOU HERE TO DO?</h2>
-          <p className="mt-3 text-[#c9c3bb]">Entry points aligned to user intent make choices obvious.</p>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {INTENTS.map((it) => (
-              <button key={it.key} className="p-4 rounded-lg bg-gradient-to-br from-slate-800 to-slate-700 text-white text-left">
-                <div className="font-semibold">{it.label}</div>
-                <div className="text-xs mt-1 text-[#c9c3bb]">{it.elements.join(' • ')}</div>
-              </button>
-            ))}
-          </div>
-        </div>
-        <aside className="p-4 bg-slate-800 rounded-lg">
-          <div className="text-sm text-[#d8d2cc]">Quick actions</div>
-          <div className="mt-4 space-y-3">
-            <div className="h-8 bg-white/6 rounded" />
-            <div className="h-8 bg-white/6 rounded" />
-          </div>
-        </aside>
-      </div>
+      <p className="mt-3 text-sm leading-relaxed text-[#d8d2cc]">{text}</p>
     </div>
   );
 }
 
-function UserJourney() {
-  const stages = ['ARRIVE AT REEPLS','WHAT ARE YOU HERE TO DO?','INTENT CHOSEN','RELEVANT ECOSYSTEM','RELEVANT DESTINATION','ACTION'];
-  const [active, setActive] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setActive((s) => Math.min(s+1, stages.length-1)), 2200);
-    return () => clearInterval(id);
-  }, []);
+function ResultCard({ number, title, text }: { number: string; title: string; text: string }) {
   return (
-    <div className="mt-6">
-      <div className="flex flex-col gap-6">
-        {stages.map((s, i) => (
-          <div key={s} className={`p-4 rounded-md ${i===active ? 'bg-slate-800' : 'bg-slate-900'}`}>
-            <div className="text-sm text-[#9ca3af]">{i+1}</div>
-            <div className="font-medium text-white">{s}</div>
-          </div>
-        ))}
-      </div>
+    <div className="rounded-[24px] border border-white/8 bg-[#0d1014] p-5">
+      <div className="label-mono text-[10px] uppercase tracking-[0.18em] text-[#8fe0ba]">{number}</div>
+      <div className="mt-4 font-display text-2xl tracking-[-0.04em] text-white">{title}</div>
+      <p className="mt-3 text-sm leading-relaxed text-[#d8d2cc]">{text}</p>
     </div>
   );
 }
+

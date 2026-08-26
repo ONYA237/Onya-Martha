@@ -1,33 +1,25 @@
 import { ProjectDetail, Project } from "./types";
-import { njongaFeatured, njongaDetail } from "./njonga";
-import { rantyFeatured, rantyDetail } from "./ranty";
 import { yummyFeatured, yummyDetail } from "./yummy";
 import { ngoAdminDashboardFeatured, ngoAdminDashboardDetail } from "./ngo-admin-dashboard";
-import { kultureHubKamerFeatured, kultureHubKamerDetail } from "./kulture-hub-kamer";
 import { ngoWebsiteDesignDetail } from "./ngo-website-design";
 import { trashnodeyDetail } from "./trashnodey";
 import { reeplsDetail } from "./reepls";
 import { treddarDetail } from "./treddar";
 import { dynamisDetail } from "./dynamis";
 import { uzzenSheerahDetail } from "./uzzen-sheerah";
+
 export const featuredProjects: Project[] = [
-	njongaFeatured,
-	rantyFeatured,
 	yummyFeatured,
 	ngoAdminDashboardFeatured,
-	kultureHubKamerFeatured,
 ];
 
 export const archiveProjects = [
 	{ slug: "ngo-website-design", title: "NGO Website Design", image: ngoWebsiteDesignDetail.image },
-	{ slug: "trashnodey", title: "Trashnodey", image: trashnodeyDetail.image },
 ];
+
 export const projectDetails: Record<string, ProjectDetail> = {
-	njonga: njongaDetail,
-	ranty: rantyDetail,
 	yummy: yummyDetail,
 	"ngo-admin-dashboard": ngoAdminDashboardDetail,
-	"kulture-hub-kamer": kultureHubKamerDetail,
 	"ngo-website-design": ngoWebsiteDesignDetail,
 	trashnodey: trashnodeyDetail,
 	reepls: reeplsDetail,

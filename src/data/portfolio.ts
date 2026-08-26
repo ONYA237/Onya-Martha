@@ -63,36 +63,8 @@ export type ProjectDetail = {
 
 export const featuredProjects: Project[] = [
   {
-    slug: "njonga",
-    index: "01",
-    title: "Njonga",
-    discipline: "UI/UX + Frontend",
-    views: 84,
-    tools: ["Figma"],
-    keywords: ["job discovery", "trust UX", "conversion flow"],
-    impact: "+21% clarity on key actions",
-    blurb:
-      "A minimalist landing page for a freelance platform built around what job seekers actually need.",
-    image:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/ef0d14215519969.Y3JvcCwzNDU2LDI3MDMsMCww.png",
-  },
-  {
-    slug: "ranty",
-    index: "02",
-    title: "Ranty",
-    discipline: "UI/UX + Frontend",
-    views: 71,
-    tools: ["Figma", "Istockphoto"],
-    keywords: ["editorial design", "luxury branding", "visual rhythm"],
-    impact: "premium positioning uplift",
-    blurb:
-      "An interior-design brand landing page that lets the space — not the chrome — sell the work.",
-    image:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/9d20d0215523313.Y3JvcCwxMTUwLDkwMCwyNSww.png",
-  },
-  {
     slug: "yummy",
-    index: "03",
+    index: "01",
     title: "Yummy",
     discipline: "UI/UX + Frontend",
     views: 52,
@@ -106,7 +78,7 @@ export const featuredProjects: Project[] = [
   },
   {
     slug: "ngo-admin-dashboard",
-    index: "04",
+    index: "02",
     title: "NGO Admin Dashboard",
     discipline: "UI/UX + Frontend",
     views: 26,
@@ -118,20 +90,6 @@ export const featuredProjects: Project[] = [
     image:
       "https://mir-s3-cdn-cf.behance.net/projects/404/1aaef0240452715.Y3JvcCwxOTU2LDE1MjksMCww.jpg",
   },
-  {
-    slug: "kulture-hub-kamer",
-    index: "05",
-    title: "Kulture Hub Kamer",
-    discipline: "UI/UX + Frontend",
-    views: 19,
-    tools: ["Figma"],
-    keywords: ["community platform", "creative discovery", "culture-first UX"],
-    impact: "stronger community discoverability",
-    blurb:
-      "A cultural hub that gives Cameroonian creativity a structured home online.",
-    image:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/3a31d2215550491.Y3JvcCwxNzI4LDEzNTEsMCww.png",
-  },
 ];
 
 export const archiveProjects = [
@@ -141,134 +99,9 @@ export const archiveProjects = [
     image:
       "https://mir-s3-cdn-cf.behance.net/projects/404/bb2d8e240423561.Y3JvcCwxMDAyLDc4NCwxNTMsNDI.png",
   },
-  {
-    slug: "trashnodey",
-    title: "Trashnodey",
-    image:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/d34318230145183.Y3JvcCwxMTI5LDk2Miw4NSww.png",
-  },
 ];
 
 export const projectDetails: Record<string, ProjectDetail> = {
-  njonga: {
-    slug: "njonga",
-    title: "Njonga",
-    discipline: "UI/UX + Frontend",
-    year: "2026",
-    image:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/ef0d14215519969.Y3JvcCwzNDU2LDI3MDMsMCww.png",
-    summary:
-      "A minimalist freelance platform focused on helping job seekers discover direction, clarity, and trustworthy opportunities.",
-    keywords: ["job discovery", "trust UX", "conversion flow"],
-    impact: "+21% clarity on key actions",
-    overview:
-      "Njonga is a landing experience designed to make a freelance platform feel confident, simple, and human. The goal was to turn a crowded job-discovery experience into a clearer, calmer path that helps people trust the platform and act quickly.",
-    challenge:
-      "The biggest challenge was balancing trust, clarity, and conversion. Many candidates were likely to abandon a platform that felt too generic, cluttered, or overly transactional. The product needed to feel premium without being cold.",
-    context:
-      "This project was framed around helping job seekers explore opportunities without feeling overwhelmed. The platform needed to reduce ambiguity, create a sense of confidence, and guide users toward action in a way that still felt personal and credible.",
-    goals: [
-      "Create a premium but approachable experience for a hiring and freelance discovery platform.",
-      "Increase clarity around trust, role fit, and action steps for users.",
-      "Design a landing experience that balances branding, conversion, and usability.",
-    ],
-    solution:
-      "I created a restrained UI system driven by spacing, typography, and a clean storytelling flow. The design reduces decision fatigue by leading users through a clear value proposition, immediate credibility, and an easy path toward action.",
-    process: [
-      {
-        title: "Research",
-        text: "I mapped the emotional and functional needs of job seekers, with a focus on clarity, trust, and onboarding friction.",
-        image:
-          "https://mir-s3-cdn-cf.behance.net/projects/404/ef0d14215519969.Y3JvcCwzNDU2LDI3MDMsMCww.png",
-      },
-      {
-        title: "Structure",
-        text: "I organized the narrative around service value, user reassurance, and conversion-focused CTAs without visual overload.",
-        image:
-          "https://mir-s3-cdn-cf.behance.net/projects/404/ef0d14215519969.Y3JvcCwzNDU2LDI3MDMsMCww.png",
-      },
-      {
-        title: "Design + build",
-        text: "I turned the system into a responsive frontend with a calm, confident visual rhythm built for clarity and trust.",
-        image:
-          "https://mir-s3-cdn-cf.behance.net/projects/404/ef0d14215519969.Y3JvcCwzNDU2LDI3MDMsMCww.png",
-      },
-    ],
-    outcome:
-      "The final experience feels premium, intentional, and low-friction. It gives the platform a stronger sense of trust while making the path from interest to action much easier to understand.",
-    results: [
-      { label: "Role", value: "UX + Frontend" },
-      { label: "Focus", value: "Trust + conversion" },
-      { label: "Outcome", value: "Clearer user journey" },
-    ],
-    deliverables: ["UX strategy", "Visual design", "Landing page", "Responsive frontend"],
-    learnings: [
-      "A cleaner visual hierarchy can increase trust faster than extra features.",
-      "Strong product positioning matters as much as UI polish.",
-      "Calm spacing and a clear CTA path make conversion feel effortless.",
-    ],
-    gallery: [
-      "https://mir-s3-cdn-cf.behance.net/projects/404/ef0d14215519969.Y3JvcCwzNDU2LDI3MDMsMCww.png",
-    ],
-  },
-  ranty: {
-    slug: "ranty",
-    title: "Ranty",
-    discipline: "UI/UX + Frontend",
-    year: "2026",
-    image:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/9d20d0215523313.Y3JvcCwxMTUwLDkwMCwyNSww.png",
-    summary:
-      "An interior design brand experience built to let the spaces speak for themselves instead of relying on visual noise.",
-    keywords: ["editorial design", "luxury branding", "visual rhythm"],
-    impact: "premium positioning uplift",
-    overview:
-      "Ranty is a luxury-focused brand landing page designed to feel editorial and minimal. The intent was to let the work lead, with typography and spacing creating a premium rhythm that supports the visual storytelling.",
-    challenge:
-      "Interior design brands often struggle to feel premium without overloading the page with too much product or content. The challenge was to create enough atmosphere without sacrificing usability or clarity.",
-    context:
-      "This project needed to position the brand as premium and curated while still keeping users oriented on the value of the services offered. The experience had to feel elevated but not difficult to navigate.",
-    goals: [
-      "Build an editorial brand presence with premium visual confidence.",
-      "Promote the work without cluttering the experience.",
-      "Keep the user journey clear and emotionally resonant.",
-    ],
-    solution:
-      "I leaned into editorial composition, generous whitespace, and strong image-led hierarchy. The page uses restraint to make the portfolio feel more elevated and intentional while keeping the client journey clear and direct.",
-    process: [
-      {
-        title: "Brand mood",
-        text: "I shaped a premium visual tone using space, contrast, and a calm rhythm that matched the brand's serious design sensibility.",
-        image:
-          "https://mir-s3-cdn-cf.behance.net/projects/404/9d20d0215523313.Y3JvcCwxMTUwLDkwMCwyNSww.png",
-      },
-      {
-        title: "Storytelling",
-        text: "I built a narrative arc from brand introduction to project reveal so the work feels curated instead of cluttered.",
-        image:
-          "https://mir-s3-cdn-cf.behance.net/projects/404/9d20d0215523313.Y3JvcCwxMTUwLDkwMCwyNSww.png",
-      },
-      {
-        title: "Build",
-        text: "The frontend was designed to preserve that editorial calm while staying responsive and high-performing across devices.",
-        image:
-          "https://mir-s3-cdn-cf.behance.net/projects/404/9d20d0215523313.Y3JvcCwxMTUwLDkwMCwyNSww.png",
-      },
-    ],
-    outcome:
-      "The result feels polished, premium, and visually confident. The brand story is clear, and the project visuals remain the centerpiece without distraction.",
-    results: [
-      { label: "Role", value: "Design + build" },
-      { label: "Focus", value: "Brand storytelling" },
-      { label: "Outcome", value: "Luxury aesthetic" },
-    ],
-    deliverables: ["Brand website", "Landing page", "Visual direction", "Responsive build"],
-    learnings: [
-      "Luxury branding works when the design removes noise instead of adding more.",
-      "The strongest visual stories are usually the quietest ones.",
-      "A premium interface still needs structure to maintain clarity.",
-    ],
-  },
   yummy: {
     slug: "yummy",
     title: "Yummy",
@@ -383,64 +216,6 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "Operational dashboards gain trust when they reduce noise before they add data.",
       "Good data design is about daily clarity, not just quantity of information.",
       "Purpose-driven interfaces must be both usable and emotionally grounded.",
-    ],
-  },
-  "kulture-hub-kamer": {
-    slug: "kulture-hub-kamer",
-    title: "Kulture Hub Kamer",
-    discipline: "UI/UX + Frontend",
-    year: "2025",
-    image:
-      "https://mir-s3-cdn-cf.behance.net/projects/404/3a31d2215550491.Y3JvcCwxNzI4LDEzNTEsMCww.png",
-    summary:
-      "A cultural hub built to showcase creativity, collaboration, and community in Cameroon with a structure that feels welcoming and alive.",
-    keywords: ["community platform", "creative discovery", "culture-first UX"],
-    impact: "stronger community discoverability",
-    overview:
-      "Kulture Hub Kamer was designed to give creative communities a clear digital home. The experience blends editorial storytelling, event visibility, and community-first navigation into a single vibrant destination.",
-    challenge:
-      "The challenge was making culture feel dynamic and credible online without turning the presentation into a disconnected content dump. The structure needed to help users discover and participate easily.",
-    context:
-      "The project had to highlight community energy while still creating clear pathways for discovery, trust, and participation. It needed to feel culturally rooted without being difficult to navigate.",
-    goals: [
-      "Create a meaningful digital home for a creative community.",
-      "Highlight stories and events without overwhelming the audience.",
-      "Design for discovery, trust, and community participation.",
-    ],
-    solution:
-      "I structured the homepage around discoverability: featured stories, upcoming events, and community value. The result feels expressive and organized, helping culture feel visible instead of buried in content.",
-    process: [
-      {
-        title: "Content strategy",
-        text: "I reviewed how community content should be structured so users can discover stories, events, and creative highlights quickly.",
-        image:
-          "https://mir-s3-cdn-cf.behance.net/projects/404/3a31d2215550491.Y3JvcCwxNzI4LDEzNTEsMCww.png",
-      },
-      {
-        title: "Experience design",
-        text: "I shaped the visual language to feel warm, rooted, and optimistic while still remaining highly navigable.",
-        image:
-          "https://mir-s3-cdn-cf.behance.net/projects/404/3a31d2215550491.Y3JvcCwxNzI4LDEzNTEsMCww.png",
-      },
-      {
-        title: "Frontend",
-        text: "The design system was translated into a responsive experience with clear rhythm and content hierarchy.",
-        image:
-          "https://mir-s3-cdn-cf.behance.net/projects/404/3a31d2215550491.Y3JvcCwxNzI4LDEzNTEsMCww.png",
-      },
-    ],
-    outcome:
-      "The platform gives Cameroon’s creative ecosystem a more visible and intentional digital identity, making community engagement and cultural storytelling easier to explore.",
-    results: [
-      { label: "Role", value: "UX + frontend" },
-      { label: "Focus", value: "Community storytelling" },
-      { label: "Outcome", value: "Clearer visibility" },
-    ],
-    deliverables: ["Marketplace UX", "Website design", "Content structure", "Responsive build"],
-    learnings: [
-      "Community platforms need a balance of warmth and structure.",
-      "Strong discovery patterns are essential when content is rich and diverse.",
-      "A vibrant brand can still be highly usable when the hierarchy is clear.",
     ],
   },
   "ngo-website-design": {

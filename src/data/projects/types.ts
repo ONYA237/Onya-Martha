@@ -31,6 +31,7 @@ export type ProjectDetail = {
   deliverables: string[];
   learnings: string[];
   gallery?: string[];
+  liveUrl?: string;
   assetSlots?: {
     hero?: string;
     problem?: string;
