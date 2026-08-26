@@ -6,7 +6,7 @@ export const ngoWebsiteDesignDetail: ProjectDetail = {
   discipline: "UI/UX + Frontend",
   year: "2025",
   image:
-    "https://mir-s3-cdn-cf.behance.net/projects/404/bb2d8e240423561.Y3JvcCwxMDAyLDc4NCwxNTMsNDI.png",
+    "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ba4343240423561.693e87236628b.png",
   summary:
     "FTDM — Fondation Denise Time MAFODOM: a nonprofit website redesign focused on trust, impact storytelling, and clear action paths for donors and volunteers.",
   keywords: ["nonprofit UX", "mission storytelling", "donor journeys"],
@@ -65,7 +65,7 @@ export const ngoWebsiteDesignDetail: ProjectDetail = {
     "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ba4343240423561.693e87236628b.png",
   ],
   assetSlots: {
-    hero: "https://mir-s3-cdn-cf.behance.net/projects/404/bb2d8e240423561.Y3JvcCwxMDAyLDc4NCwxNTMsLDI.png",
+    hero: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ba4343240423561.693e87236628b.png",
     finalDesign: [
       "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ba4343240423561.693e87236628b.png",
     ],

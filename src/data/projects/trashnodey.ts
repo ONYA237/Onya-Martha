@@ -6,7 +6,7 @@ export const trashnodeyDetail: ProjectDetail = {
   discipline: "UI/UX + Frontend",
   year: "2025",
   image:
-    "https://mir-s3-cdn-cf.behance.net/projects/404/d34318230145183.Y3JvcCwxMTI5LDk2Miw4NSww.png",
+    "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a68931230145183.68752351f1fa5.png",
   summary:
     "TrashNodey is a mobile-first platform that helps citizens, collectors, and municipal teams manage waste more effectively — from reporting illegal dumpsites to listing recyclables for sale.",
   keywords: ["sustainability UX", "reporting flow", "community action"],
@@ -79,7 +79,7 @@ export const trashnodeyDetail: ProjectDetail = {
     "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4cc54a230145183.68780509539af.png",
   ],
   assetSlots: {
-    hero: "https://mir-s3-cdn-cf.behance.net/projects/404/d34318230145183.Y3JvcCwxMTI5LDk2Miw4NSww.png",
+    hero: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a68931230145183.68752351f1fa5.png",
     process: [
       "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a68931230145183.68752351f1fa5.png",
       "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4cc54a230145183.68780509539af.png",
