@@ -1,4 +1,5 @@
 import { ProjectDetail } from "./types";
+import dynamisKeyFlowBreakdown from "../../assets/projects/dynamis/process-02/ChatGPT Image Aug 24, 2026, 09_15_22 PM.png";
 
 export const dynamisDetail: ProjectDetail = {
   slug: "dynamis",
@@ -91,6 +92,9 @@ export const dynamisDetail: ProjectDetail = {
     "Competition must tie back to reflection and practice to be meaningful.",
   ],
   gallery: [],
+  assets: {
+    process: [dynamisKeyFlowBreakdown],
+  },
   assetSlots: {
     hero: "dynamis/hero",
     problem: "dynamis/problem",
