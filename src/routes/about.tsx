@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { experience, graphicDesign, profile, skills, stats } from "@/data/portfolio";
+import { graphicDesign, profile, skills, stats } from "@/data/portfolio";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -115,51 +115,6 @@ function AboutPage() {
             >
               Download CV <span aria-hidden>↗</span>
             </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-border bg-secondary px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1600px]">
-          <span className="label-mono text-brand">05, Experience</span>
-          <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
-            <h2 className="display-xl text-4xl md:text-6xl">Where I've worked.</h2>
-            <a
-              href={profile.cv}
-              target="_blank"
-              rel="noreferrer"
-              className="label-mono text-muted-foreground hover:text-foreground"
-            >
-              Full CV ↗
-            </a>
-          </div>
-
-          <div className="mt-16 border-t border-border">
-            {experience.map((job) => (
-              <div
-                key={`${job.company}-${job.role}`}
-                className="grid gap-6 border-b border-border py-10 md:grid-cols-[14rem_1fr]"
-              >
-                <div>
-                  <div className="label-mono text-muted-foreground">{job.period}</div>
-                  <div className="label-mono mt-2 text-brand">{job.kind}</div>
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-semibold tracking-tight md:text-2xl">
-                    {job.role}
-                  </h3>
-                  <div className="label-mono mt-1 text-muted-foreground">{job.company}</div>
-                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                    {job.points.map((p) => (
-                      <li key={p} className="flex gap-3">
-                        <span className="text-brand">•</span>
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
