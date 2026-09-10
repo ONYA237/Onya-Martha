@@ -1,7 +1,6 @@
 import { ProjectDetail, Project } from "./types";
 import { yummyFeatured, yummyDetail } from "./yummy";
 import { ngoAdminDashboardFeatured, ngoAdminDashboardDetail } from "./ngo-admin-dashboard";
-import { ngoWebsiteDesignDetail } from "./ngo-website-design";
 import { trashnodeyDetail } from "./trashnodey";
 import { reeplsDetail } from "./reepls";
 import { treddarDetail } from "./treddar";
@@ -13,14 +12,11 @@ export const featuredProjects: Project[] = [
 	ngoAdminDashboardFeatured,
 ];
 
-export const archiveProjects = [
-	{ slug: "ngo-website-design", title: "NGO Website Design", image: ngoWebsiteDesignDetail.image },
-];
+export const archiveProjects = [];
 
 export const projectDetails: Record<string, ProjectDetail> = {
 	yummy: yummyDetail,
 	"ngo-admin-dashboard": ngoAdminDashboardDetail,
-	"ngo-website-design": ngoWebsiteDesignDetail,
 	trashnodey: trashnodeyDetail,
 	reepls: reeplsDetail,
 	treddar: treddarDetail,

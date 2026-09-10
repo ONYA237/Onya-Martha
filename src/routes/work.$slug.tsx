@@ -45,10 +45,9 @@ function ProjectDetailPage() {
   const featured = featuredProjects.find((f) => f.slug === slug);
 
   // Simple single-image case studies: display the full Behance artwork as-is
-  const simpleCaseStudies = ["ngo-website-design", "trashnodey"];
+  const simpleCaseStudies = ["trashnodey"];
   const behanceLinks: Record<string, string> = {
     "trashnodey": "https://www.behance.net/gallery/230145183/Trashnodey",
-    "ngo-website-design": "https://www.behance.net/gallery/240423561/NGO-Website-Design",
   };
 
   // If the slug matches a featured project but has no full detail yet,
