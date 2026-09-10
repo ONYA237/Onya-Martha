@@ -9,49 +9,34 @@ const nav = [
 
 function BrandLockup({ dark }: { dark: boolean }) {
   return (
-    <div className="brand-lockup">
+    <div className="brand-compact">
       <svg
-        viewBox="0 0 520 420"
+        viewBox="0 0 220 180"
         aria-label="Onya Martha logo"
-        className={`brand-lockup__mark ${dark ? "brand-lockup__mark--dark" : ""}`}
+        className="brand-compact__mark"
         role="img"
       >
         <path
-          d="M256 42C168 42 94 116 94 204c0 101 82 182 182 182 62 0 116-29 150-74l-48-39c-22 22-55 35-90 35-71 0-128-57-128-128 0-72 58-130 130-130 40 0 77 18 100 47l45-44C382 68 323 42 256 42Z"
-          fill={dark ? "#0f1720" : "#1d2b36"}
+          d="M102 16c-47 0-85 38-85 85s38 85 85 85c26 0 49-11 65-29l-26-21c-10 10-25 16-39 16-31 0-56-25-56-56s25-56 56-56c15 0 29 6 39 16l27-21c-17-18-40-29-66-29Z"
+          fill={dark ? "#f8faf8" : "#f5f7f5"}
         />
         <path
-          d="M372 62 250 206 332 206 449 62Z"
+          d="M119 36 72 104h48l47-68Z"
           fill="#3cc1b4"
         />
         <path
-          d="M118 162 95 118l114 98-73 85 65 49 85-93-76-57-32 10Z"
+          d="M77 62 62 42l61 52-39 44 34 26 46-49-41-30-17 5Z"
           fill="#3cc1b4"
         />
         <path
-          d="M296 318h124l-84-89h-86z"
+          d="M124 116h49l-35-38h-37z"
           fill="#3cc1b4"
-          opacity="0.92"
-        />
-        <path
-          d="M90 344c46 32 94 50 165 50 76 0 144-27 196-75l-58-2c-41 36-92 55-149 55-58 0-109-18-153-52l-1 24Z"
-          fill={dark ? "#0f1720" : "#1d2b36"}
+          opacity="0.95"
         />
       </svg>
-
-      <div className={`brand-lockup__text ${dark ? "brand-lockup__text--dark" : ""}`}>
-        <div className="brand-lockup__name">
-          <span>Onya</span>
-          <span>Martha</span>
-        </div>
-        <div className="brand-lockup__slogan">
-          <span>UI/UX</span>
-          <span className="brand-lockup__dot" aria-hidden="true" />
-          <span>WEB</span>
-          <span className="brand-lockup__dot" aria-hidden="true" />
-          <span>GRAPHICS</span>
-        </div>
-      </div>
+      <span className={`brand-compact__name ${dark ? "brand-compact__name--dark" : ""}`}>
+        Onya Martha
+      </span>
     </div>
   );
 }
@@ -80,12 +65,7 @@ export function SiteHeader({ variant = "light" }: { variant?: "light" | "dark" }
         </nav>
 
         <div className="flex items-center gap-3">
-          {dark ? (
-            <span className="label-mono flex items-center gap-2 text-brand">
-              <span className="size-1.5 rounded-full bg-brand" />
-              Available
-            </span>
-          ) : (
+          {!dark && (
             <Link
               to="/contact"
               className="rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-foreground hover:text-background"
